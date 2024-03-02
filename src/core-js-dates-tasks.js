@@ -210,18 +210,17 @@ function getCountWeekendsInMonth(month, year) {
  * Date(2024, 0, 31) => 5
  * Date(2024, 1, 23) => 8
  */
-// function getWeekNumberByDate(date) {
-//   const year = date.getFullYear();
-//   const newDate = new Date(year, 0, 1);
-//   let week = 1;
-//   while (newDate.getTime() !== date.getTime()) {
-//     newDate.setDate(newDate.getDate() + 1);
-//     if (newDate.getDay() === 0) {
-//       week += 1;
-//     }
-//   }
-//   return week;
-// }
+function getWeekNumberByDate(date) {
+  const newDate = new Date(date.getUTCFullYear(), 0, 1);
+  let week = 1;
+  while (newDate.getTime() !== date.getTime()) {
+    newDate.setUTCDate(newDate.getUTCDate() + 1);
+    if (newDate.getUTCDay() === 0) {
+      week += 1;
+    }
+  }
+  return week;
+}
 
 /**
  * Returns the date of the next Friday the 13th from a given date.
@@ -380,7 +379,7 @@ module.exports = {
   isDateInPeriod,
   formatDate,
   getCountWeekendsInMonth,
-  // getWeekNumberByDate,
+  getWeekNumberByDate,
   getNextFridayThe13th,
   getQuarter,
   getWorkSchedule,
