@@ -183,21 +183,21 @@ function formatDate(date) {
  * 12, 2023 => 10
  * 1, 2024 => 8
  */
-// function getCountWeekendsInMonth(month, year) {
-//   const firstDayOfMonth = new Date(year, month - 1, 1);
-//   const lastDayOfMonth = new Date(year, month, 0);
-//   const day = firstDayOfMonth;
-//   let count = 0;
+function getCountWeekendsInMonth(month, year) {
+  const firstDayOfMonth = new Date(year, month - 1, 1);
+  const lastDayOfMonth = new Date(year, month, 0);
+  const day = firstDayOfMonth;
+  let count = 0;
 
-//   while (day <= lastDayOfMonth) {
-//     if (day.getDay() === 0 || day.getDay() === 6) {
-//       count += 1;
-//     }
-//     day.setDate(day.getDate() + 1);
-//   }
+  while (day <= lastDayOfMonth) {
+    if (day.getDay() === 0 || day.getDay() === 6) {
+      count += 1;
+    }
+    day.setDate(day.getDate() + 1);
+  }
 
-//   return count;
-// }
+  return count;
+}
 
 /**
  * Returns the week number of the year for a given date.
@@ -379,7 +379,7 @@ module.exports = {
   getCountDaysOnPeriod,
   isDateInPeriod,
   formatDate,
-  // getCountWeekendsInMonth,
+  getCountWeekendsInMonth,
   // getWeekNumberByDate,
   getNextFridayThe13th,
   getQuarter,
