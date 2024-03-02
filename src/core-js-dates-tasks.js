@@ -17,9 +17,9 @@
  * '01 Jan 1970 00:00:00 UTC' => 0
  * '04 Dec 1995 00:12:00 UTC' => 818035920000
  */
-// function dateToTimestamp(date) {
-//   return new Date(date).getTime();
-// }
+function dateToTimestamp(date) {
+  return new Date(date).getTime();
+}
 
 /**
  * Returns the time in hh:mm:ss format from the received date.
@@ -49,19 +49,19 @@ function getTime(date) {
  * '03 Dec 1995 00:12:00 UTC' => 'Sunday'
  * '2024-01-30T00:00:00.000Z' => 'Tuesday'
  */
-function getDayName(date) {
-  const parseDate = new Date(date);
-  const days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-  return days[parseDate.getDay()];
-}
+// function getDayName(date) {
+//   const parseDate = new Date(date);
+//   const days = [
+//     'Sunday',
+//     'Monday',
+//     'Tuesday',
+//     'Wednesday',
+//     'Thursday',
+//     'Friday',
+//     'Saturday',
+//   ];
+//   return days[parseDate.getDay()];
+// }
 
 /**
  * Returns the date of the next Friday from a given date.
@@ -371,9 +371,9 @@ function isLeapYear(date) {
 }
 
 module.exports = {
-  // dateToTimestamp,
+  dateToTimestamp,
   getTime,
-  getDayName,
+  // getDayName,
   getNextFriday,
   getCountDaysInMonth,
   getCountDaysOnPeriod,
