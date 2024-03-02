@@ -140,13 +140,13 @@ function getCountDaysOnPeriod(dateStart, dateEnd) {
  * '2024-02-02', { start: '2024-02-02', end: '2024-03-02' } => true
  * '2024-02-10', { start: '2024-02-02', end: '2024-03-02' } => true
  */
-// function isDateInPeriod(date, period) {
-//   const mainDate = new Date(date);
-//   let { start, end } = period;
-//   start = new Date(start);
-//   end = new Date(end);
-//   return mainDate >= start && mainDate <= end;
-// }
+function isDateInPeriod(date, period) {
+  const mainDate = new Date(date);
+  let { start, end } = period;
+  start = new Date(start);
+  end = new Date(end);
+  return mainDate >= start && mainDate <= end;
+}
 
 /**
  * Returns the date formatted in 'M/D/YYYY, hh:mm:ss a'.
@@ -159,17 +159,17 @@ function getCountDaysOnPeriod(dateStart, dateEnd) {
  * '1999-01-05T02:20:00.000Z' => '1/5/1999, 2:20:00 AM'
  * '2010-12-15T22:59:00.000Z' => '12/15/2010, 10:59:00 PM'
  */
-// function formatDate(date) {
-//   const dt = new Date(date);
-//   const hrs = dt.getUTCHours();
-//   const mins = dt.getUTCMinutes();
-//   const secs = dt.getUTCSeconds();
-//   const day = dt.getUTCDate();
-//   const year = dt.getUTCFullYear();
-//   const month = dt.getUTCMonth() + 1;
-//   const z = hrs >= 12 ? 'PM' : 'AM';
-//   return `${month}/${day}/${year}, ${hrs > 12 ? hrs - 12 : hrs}:${mins < 10 ? `0${mins}` : mins}:${secs < 10 ? `0${secs}` : secs} ${z}`;
-// }
+function formatDate(date) {
+  const dt = new Date(date);
+  const hrs = dt.getUTCHours();
+  const mins = dt.getUTCMinutes();
+  const secs = dt.getUTCSeconds();
+  const day = dt.getUTCDate();
+  const year = dt.getUTCFullYear();
+  const month = dt.getUTCMonth() + 1;
+  const z = hrs >= 12 ? 'PM' : 'AM';
+  return `${month}/${day}/${year}, ${hrs > 12 ? hrs - 12 : hrs}:${mins < 10 ? `0${mins}` : mins}:${secs < 10 ? `0${secs}` : secs} ${z}`;
+}
 
 /**
  * Returns the total number of weekend days (Saturdays and Sundays) in a specified month and year.
@@ -183,21 +183,21 @@ function getCountDaysOnPeriod(dateStart, dateEnd) {
  * 12, 2023 => 10
  * 1, 2024 => 8
  */
-function getCountWeekendsInMonth(month, year) {
-  const firstDayOfMonth = new Date(year, month - 1, 1);
-  const lastDayOfMonth = new Date(year, month, 0);
-  const day = firstDayOfMonth;
-  let count = 0;
+// function getCountWeekendsInMonth(month, year) {
+//   const firstDayOfMonth = new Date(year, month - 1, 1);
+//   const lastDayOfMonth = new Date(year, month, 0);
+//   const day = firstDayOfMonth;
+//   let count = 0;
 
-  while (day <= lastDayOfMonth) {
-    if (day.getDay() === 0 || day.getDay() === 6) {
-      count += 1;
-    }
-    day.setDate(day.getDate() + 1);
-  }
+//   while (day <= lastDayOfMonth) {
+//     if (day.getDay() === 0 || day.getDay() === 6) {
+//       count += 1;
+//     }
+//     day.setDate(day.getDate() + 1);
+//   }
 
-  return count;
-}
+//   return count;
+// }
 
 /**
  * Returns the week number of the year for a given date.
@@ -210,18 +210,18 @@ function getCountWeekendsInMonth(month, year) {
  * Date(2024, 0, 31) => 5
  * Date(2024, 1, 23) => 8
  */
-function getWeekNumberByDate(date) {
-  const year = date.getFullYear();
-  const newDate = new Date(year, 0, 1);
-  let week = 1;
-  while (newDate.getTime() !== date.getTime()) {
-    newDate.setDate(newDate.getDate() + 1);
-    if (newDate.getDay() === 0) {
-      week += 1;
-    }
-  }
-  return week;
-}
+// function getWeekNumberByDate(date) {
+//   const year = date.getFullYear();
+//   const newDate = new Date(year, 0, 1);
+//   let week = 1;
+//   while (newDate.getTime() !== date.getTime()) {
+//     newDate.setDate(newDate.getDate() + 1);
+//     if (newDate.getDay() === 0) {
+//       week += 1;
+//     }
+//   }
+//   return week;
+// }
 
 /**
  * Returns the date of the next Friday the 13th from a given date.
@@ -377,10 +377,10 @@ module.exports = {
   getNextFriday,
   getCountDaysInMonth,
   getCountDaysOnPeriod,
-  // isDateInPeriod,
-  // formatDate,
-  getCountWeekendsInMonth,
-  getWeekNumberByDate,
+  isDateInPeriod,
+  formatDate,
+  // getCountWeekendsInMonth,
+  // getWeekNumberByDate,
   getNextFridayThe13th,
   getQuarter,
   getWorkSchedule,
