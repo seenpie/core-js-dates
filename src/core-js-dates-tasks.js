@@ -32,12 +32,10 @@ function dateToTimestamp(date) {
  * Date(2015, 10, 20, 23, 15, 1) => '23:15:01'
  */
 function getTime(date) {
-  const hours = date.getHours() >= 10 ? date.getHours() : `0${date.getHours()}`;
-  const mins =
-    date.getMinutes() >= 10 ? date.getMinutes() : `0${date.getMinutes()}`;
-  const secs =
-    date.getSeconds() >= 10 ? date.getSeconds() : `0${date.getSeconds()}`;
-  return `${hours}:${mins}:${secs}`;
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+  return `${hours}:${minutes}:${seconds}`;
 }
 
 /**
