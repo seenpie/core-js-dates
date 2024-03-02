@@ -74,16 +74,16 @@ function getDayName(date) {
  * Date('2024-02-13T00:00:00Z') => Date('2024-02-16T00:00:00Z')
  * Date('2024-02-16T00:00:00Z') => Date('2024-02-23T00:00:00Z')
  */
-// function getNextFriday(date) {
-//   const dt = new Date(date);
-//   while (dt.getDay() !== 5) {
-//     dt.setDate(dt.getDate() + 1);
-//   }
-//   if (dt.getTime() === date.getTime()) {
-//     dt.setDate(dt.getDate() + 7);
-//   }
-//   return dt;
-// }
+function getNextFriday(date) {
+  const dt = new Date(date);
+  while (dt.getDay() !== 5) {
+    dt.setDate(dt.getDate() + 1);
+  }
+  if (dt.getTime() === date.getTime()) {
+    dt.setDate(dt.getDate() + 7);
+  }
+  return dt;
+}
 
 /**
  * Returns the number of days in a specified month and year.
@@ -96,11 +96,11 @@ function getDayName(date) {
  * 1, 2024 => 31
  * 2, 2024 => 29
  */
-function getCountDaysInMonth(month, year) {
-  const dt = new Date(year, month);
-  dt.setDate(0);
-  return dt.getDate();
-}
+// function getCountDaysInMonth(month, year) {
+//   const dt = new Date(year, month);
+//   dt.setDate(0);
+//   return dt.getDate();
+// }
 
 /**
  * Returns the total number of days between two dates, including both the start and end dates.
@@ -113,15 +113,15 @@ function getCountDaysInMonth(month, year) {
  * '2024-02-01T00:00:00.000Z', '2024-02-02T00:00:00.000Z'  => 2
  * '2024-02-01T00:00:00.000Z', '2024-02-12T00:00:00.000Z'  => 12
  */
-function getCountDaysOnPeriod(dateStart, dateEnd) {
-  const start = new Date(dateStart);
-  const end = new Date(dateEnd);
-  const diff = Math.abs(start - end);
-  const millisecondsPerDay = 1000 * 60 * 60 * 24;
-  const days = Math.round(diff / millisecondsPerDay);
+// function getCountDaysOnPeriod(dateStart, dateEnd) {
+//   const start = new Date(dateStart);
+//   const end = new Date(dateEnd);
+//   const diff = Math.abs(start - end);
+//   const millisecondsPerDay = 1000 * 60 * 60 * 24;
+//   const days = Math.round(diff / millisecondsPerDay);
 
-  return days + 1;
-}
+//   return days + 1;
+// }
 
 /**
  * Returns true if a given date is within a specified range, including both the start and end dates.
@@ -374,9 +374,9 @@ module.exports = {
   dateToTimestamp,
   getTime,
   getDayName,
-  // getNextFriday,
-  getCountDaysInMonth,
-  getCountDaysOnPeriod,
+  getNextFriday,
+  // getCountDaysInMonth,
+  // getCountDaysOnPeriod,
   isDateInPeriod,
   formatDate,
   getCountWeekendsInMonth,
