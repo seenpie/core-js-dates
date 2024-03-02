@@ -96,11 +96,11 @@ function getNextFriday(date) {
  * 1, 2024 => 31
  * 2, 2024 => 29
  */
-// function getCountDaysInMonth(month, year) {
-//   const dt = new Date(year, month);
-//   dt.setDate(0);
-//   return dt.getDate();
-// }
+function getCountDaysInMonth(month, year) {
+  const dt = new Date(year, month);
+  dt.setDate(0);
+  return dt.getDate();
+}
 
 /**
  * Returns the total number of days between two dates, including both the start and end dates.
@@ -113,15 +113,15 @@ function getNextFriday(date) {
  * '2024-02-01T00:00:00.000Z', '2024-02-02T00:00:00.000Z'  => 2
  * '2024-02-01T00:00:00.000Z', '2024-02-12T00:00:00.000Z'  => 12
  */
-// function getCountDaysOnPeriod(dateStart, dateEnd) {
-//   const start = new Date(dateStart);
-//   const end = new Date(dateEnd);
-//   const diff = Math.abs(start - end);
-//   const millisecondsPerDay = 1000 * 60 * 60 * 24;
-//   const days = Math.round(diff / millisecondsPerDay);
+function getCountDaysOnPeriod(dateStart, dateEnd) {
+  const start = new Date(dateStart);
+  const end = new Date(dateEnd);
+  const diff = Math.abs(start - end);
+  const millisecondsPerDay = 1000 * 60 * 60 * 24;
+  const days = Math.round(diff / millisecondsPerDay);
 
-//   return days + 1;
-// }
+  return days + 1;
+}
 
 /**
  * Returns true if a given date is within a specified range, including both the start and end dates.
@@ -140,13 +140,13 @@ function getNextFriday(date) {
  * '2024-02-02', { start: '2024-02-02', end: '2024-03-02' } => true
  * '2024-02-10', { start: '2024-02-02', end: '2024-03-02' } => true
  */
-function isDateInPeriod(date, period) {
-  const mainDate = new Date(date);
-  let { start, end } = period;
-  start = new Date(start);
-  end = new Date(end);
-  return mainDate >= start && mainDate <= end;
-}
+// function isDateInPeriod(date, period) {
+//   const mainDate = new Date(date);
+//   let { start, end } = period;
+//   start = new Date(start);
+//   end = new Date(end);
+//   return mainDate >= start && mainDate <= end;
+// }
 
 /**
  * Returns the date formatted in 'M/D/YYYY, hh:mm:ss a'.
@@ -159,17 +159,17 @@ function isDateInPeriod(date, period) {
  * '1999-01-05T02:20:00.000Z' => '1/5/1999, 2:20:00 AM'
  * '2010-12-15T22:59:00.000Z' => '12/15/2010, 10:59:00 PM'
  */
-function formatDate(date) {
-  const dt = new Date(date);
-  const hrs = dt.getUTCHours();
-  const mins = dt.getUTCMinutes();
-  const secs = dt.getUTCSeconds();
-  const day = dt.getUTCDate();
-  const year = dt.getUTCFullYear();
-  const month = dt.getUTCMonth() + 1;
-  const z = hrs >= 12 ? 'PM' : 'AM';
-  return `${month}/${day}/${year}, ${hrs > 12 ? hrs - 12 : hrs}:${mins < 10 ? `0${mins}` : mins}:${secs < 10 ? `0${secs}` : secs} ${z}`;
-}
+// function formatDate(date) {
+//   const dt = new Date(date);
+//   const hrs = dt.getUTCHours();
+//   const mins = dt.getUTCMinutes();
+//   const secs = dt.getUTCSeconds();
+//   const day = dt.getUTCDate();
+//   const year = dt.getUTCFullYear();
+//   const month = dt.getUTCMonth() + 1;
+//   const z = hrs >= 12 ? 'PM' : 'AM';
+//   return `${month}/${day}/${year}, ${hrs > 12 ? hrs - 12 : hrs}:${mins < 10 ? `0${mins}` : mins}:${secs < 10 ? `0${secs}` : secs} ${z}`;
+// }
 
 /**
  * Returns the total number of weekend days (Saturdays and Sundays) in a specified month and year.
@@ -375,10 +375,10 @@ module.exports = {
   getTime,
   getDayName,
   getNextFriday,
-  // getCountDaysInMonth,
-  // getCountDaysOnPeriod,
-  isDateInPeriod,
-  formatDate,
+  getCountDaysInMonth,
+  getCountDaysOnPeriod,
+  // isDateInPeriod,
+  // formatDate,
   getCountWeekendsInMonth,
   getWeekNumberByDate,
   getNextFridayThe13th,
