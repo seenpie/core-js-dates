@@ -49,19 +49,19 @@ function getTime(date) {
  * '03 Dec 1995 00:12:00 UTC' => 'Sunday'
  * '2024-01-30T00:00:00.000Z' => 'Tuesday'
  */
-// function getDayName(date) {
-//   const parseDate = new Date(date);
-//   const days = [
-//     'Sunday',
-//     'Monday',
-//     'Tuesday',
-//     'Wednesday',
-//     'Thursday',
-//     'Friday',
-//     'Saturday',
-//   ];
-//   return days[parseDate.getDay()];
-// }
+function getDayName(date) {
+  const parseDate = new Date(date);
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  return days[parseDate.getDay()];
+}
 
 /**
  * Returns the date of the next Friday from a given date.
@@ -74,16 +74,16 @@ function getTime(date) {
  * Date('2024-02-13T00:00:00Z') => Date('2024-02-16T00:00:00Z')
  * Date('2024-02-16T00:00:00Z') => Date('2024-02-23T00:00:00Z')
  */
-function getNextFriday(date) {
-  const dt = new Date(date);
-  while (dt.getDay() !== 5) {
-    dt.setDate(dt.getDate() + 1);
-  }
-  if (dt.getTime() === date.getTime()) {
-    dt.setDate(dt.getDate() + 7);
-  }
-  return dt;
-}
+// function getNextFriday(date) {
+//   const dt = new Date(date);
+//   while (dt.getDay() !== 5) {
+//     dt.setDate(dt.getDate() + 1);
+//   }
+//   if (dt.getTime() === date.getTime()) {
+//     dt.setDate(dt.getDate() + 7);
+//   }
+//   return dt;
+// }
 
 /**
  * Returns the number of days in a specified month and year.
@@ -373,8 +373,8 @@ function isLeapYear(date) {
 module.exports = {
   dateToTimestamp,
   getTime,
-  // getDayName,
-  getNextFriday,
+  getDayName,
+  // getNextFriday,
   getCountDaysInMonth,
   getCountDaysOnPeriod,
   isDateInPeriod,
